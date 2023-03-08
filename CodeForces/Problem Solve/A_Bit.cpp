@@ -24,7 +24,6 @@ const ll mod = 1e9 + 7;
 
 // TypeDEf
 typedef pair<ll, ll> pll;
-typedef vector<int> vi;
 typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<string> vs;
@@ -213,15 +212,18 @@ bool isPerfectSquare(ll x)
 }
 void solve()
 {
-    int k,n,w;
-    cin>>k>>n>>w;
+    int n;
+    cin>>n;
     int ans = 0;
-    for(int i = 1;i <= w; ++i){
-        ans = ans + (i * k);
-        // cout<<ans<<nn;
+    for(int i = 0;i < n;++i){
+    // while(true){
+        string s;
+        cin>>s;
+        // if(s.size() == 0) break;
+        if(s == "++X" || s == "X++") ans++;
+        else ans--;
     }
-    if(ans > n) cout<<ans - n<<nn;
-    else cout<<0<<nn;
+    cout<<ans<<nn;  
 }
 // Main
 int main()

@@ -213,15 +213,22 @@ bool isPerfectSquare(ll x)
 }
 void solve()
 {
-    int k,n,w;
-    cin>>k>>n>>w;
+    int n;
+    cin>>n;
+    vi v(3);
     int ans = 0;
-    for(int i = 1;i <= w; ++i){
-        ans = ans + (i * k);
-        // cout<<ans<<nn;
+    while(n--){
+        fl(i,3){
+            cin>>v[i];
+        }
+        int cnt = 0;
+        fl(i,3){
+            if(v[i] == 1) cnt++;
+        }
+        if(cnt >= 2) ans++;
     }
-    if(ans > n) cout<<ans - n<<nn;
-    else cout<<0<<nn;
+    cout<<ans<<nn;
+
 }
 // Main
 int main()

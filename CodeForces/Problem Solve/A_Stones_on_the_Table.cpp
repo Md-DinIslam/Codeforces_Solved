@@ -42,7 +42,7 @@ typedef map<ll, ll> mll;
 #define pm cout << "-1\n";
 #define pn cout << "NO\n";
 #define pf cout << "FIRST\n";
-#define nn "\n"
+#define nl "\n"
 #define vr(v) v.begin(), v.end()
 #define rv(v) v.end(), v.begin()
 
@@ -213,15 +213,15 @@ bool isPerfectSquare(ll x)
 }
 void solve()
 {
-    int k,n,w;
-    cin>>k>>n>>w;
-    int ans = 0;
-    for(int i = 1;i <= w; ++i){
-        ans = ans + (i * k);
-        // cout<<ans<<nn;
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int cnt = 0;
+    fl(i,n-1){
+        if(s[i] == s[i+1]) cnt++;
     }
-    if(ans > n) cout<<ans - n<<nn;
-    else cout<<0<<nn;
+    cout<<cnt<<nl;
 }
 // Main
 int main()
