@@ -216,10 +216,16 @@ void solve()
     int n;
     cin>>n;
     vi v(n);
-    for(int i = 0;i < n; ++i) cin>>v[i];
-    int cnt = count(vr(v),1);
-    if(cnt > 0) cout<<"Hard"<<endl;
-    else cout<<"Easy"<<endl;
+    fl(i,n) cin>>v[i];
+    int odd = 0, even = 0;
+    for(int i = 0;i < n; ++i){
+        if(i % 2 != v[i] % 2){
+            if(i % 2 == 0) even++;
+            else odd++;
+        }
+    }
+    if(even == odd) cout<<odd<<endl;
+    else pm;
 }
 // Main
 int main()
@@ -231,13 +237,13 @@ int main()
     freopen("output.txt", "w", stdout);
 #endif
     Code By Din
-    //     ll t;
-    // cin >> t;
-    // fl(i, t)
-    // {
-    //     solve();
-    // }
-    solve();
+        ll t;
+    cin >> t;
+    fl(i, t)
+    {
+        solve();
+    }
+    // solve();
     // fl(i,t) //Kickstart
     // {
     //     cout<<"Case #"<<i+1<<": ";

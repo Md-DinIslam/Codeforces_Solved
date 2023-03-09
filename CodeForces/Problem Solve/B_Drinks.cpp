@@ -25,6 +25,7 @@ const ll mod = 1e9 + 7;
 // TypeDEf
 typedef pair<ll, ll> pll;
 typedef vector<int> vi;
+typedef vector<float> vf;
 typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<string> vs;
@@ -42,7 +43,7 @@ typedef map<ll, ll> mll;
 #define pm cout << "-1\n";
 #define pn cout << "NO\n";
 #define pf cout << "FIRST\n";
-#define nn cout << endl;
+#define nl "\n"
 #define vr(v) v.begin(), v.end()
 #define rv(v) v.end(), v.begin()
 
@@ -215,11 +216,14 @@ void solve()
 {
     int n;
     cin>>n;
-    vi v(n);
-    for(int i = 0;i < n; ++i) cin>>v[i];
-    int cnt = count(vr(v),1);
-    if(cnt > 0) cout<<"Hard"<<endl;
-    else cout<<"Easy"<<endl;
+    vector<float> v(n);
+    float ans = 0;
+    fl(i,n){
+        cin>>v[i];
+        ans += v[i];
+    }
+    ans /= n;
+    cout<<ans<<endl;
 }
 // Main
 int main()

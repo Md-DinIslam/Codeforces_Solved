@@ -215,11 +215,15 @@ void solve()
 {
     int n;
     cin>>n;
-    vi v(n);
-    for(int i = 0;i < n; ++i) cin>>v[i];
-    int cnt = count(vr(v),1);
-    if(cnt > 0) cout<<"Hard"<<endl;
-    else cout<<"Easy"<<endl;
+    vi a(n),b(n);
+    fl(i,n) cin>>a[i];
+    fl(i,n) cin>>b[i];
+    ll sum = 0,minA,minB;
+    minA = *min_element(vr(a)); minB = *min_element(vr(b));
+    for(int i = 0; i < n; ++i){
+        sum += max((a[i] - minA),(b[i] - minB));
+    }
+    cout<<sum<<endl;
 }
 // Main
 int main()
@@ -231,13 +235,13 @@ int main()
     freopen("output.txt", "w", stdout);
 #endif
     Code By Din
-    //     ll t;
-    // cin >> t;
-    // fl(i, t)
-    // {
-    //     solve();
-    // }
-    solve();
+        ll t;
+    cin >> t;
+    fl(i, t)
+    {
+        solve();
+    }
+    // solve();
     // fl(i,t) //Kickstart
     // {
     //     cout<<"Case #"<<i+1<<": ";
