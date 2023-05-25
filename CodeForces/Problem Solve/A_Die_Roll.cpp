@@ -81,12 +81,10 @@ const ll mod = 1e9 + 7;
 
 void solve()
 {
-    int v[4];
-    for (int i = 0; i < 4; ++i) {
-        cin >> v[i];
-    }
-    sort(v, v + 4);
-    cout << v[3] - v[0] << " " << v[3] - v[1] << " " << v[3] - v[2] << '\n';
+    int n, k;
+    cin >> n >> k;
+    string ans[6] = {"1/6", "1/3", "1/2", "2/3", "5/6", "1/1"};
+    cout << (ans[6 - max(n, k)]);
 }
 // Main
 int main()

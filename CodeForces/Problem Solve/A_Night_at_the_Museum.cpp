@@ -81,12 +81,16 @@ const ll mod = 1e9 + 7;
 
 void solve()
 {
-    int v[4];
-    for (int i = 0; i < 4; ++i) {
-        cin >> v[i];
+    string s;
+    cin >> s;
+    int ans = 0, v[26], ptr = 0;
+    iota(v, v + 26, 0);
+    for (int i = 0; i < s.size(); ++i) {
+        int move = abs((s[i] - 'a') - ptr);
+        ans += (min((26 - move), move));
+        ptr = (int)(s[i] - 'a');
     }
-    sort(v, v + 4);
-    cout << v[3] - v[0] << " " << v[3] - v[1] << " " << v[3] - v[2] << '\n';
+    cout << ans;
 }
 // Main
 int main()

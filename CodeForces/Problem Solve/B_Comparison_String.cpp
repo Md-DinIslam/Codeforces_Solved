@@ -81,12 +81,18 @@ const ll mod = 1e9 + 7;
 
 void solve()
 {
-    int v[4];
-    for (int i = 0; i < 4; ++i) {
-        cin >> v[i];
+    int n;
+    string s;
+    cin >> n >> s;
+    int ans = 1, cnt = 1;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] == s[i + 1]) {
+            ++cnt;
+            ans = max(ans, cnt);
+        }
+        else cnt = 1;
     }
-    sort(v, v + 4);
-    cout << v[3] - v[0] << " " << v[3] - v[1] << " " << v[3] - v[2] << '\n';
+    cout << ans + 1 << '\n';
 }
 // Main
 int main()
@@ -99,7 +105,7 @@ int main()
 #endif
     clock_t z = clock();
     ll t = 1;
-    // cin >> t;
+    cin >> t;
     while (t--) solve();
     // fl(i, t) { //Kickstart
     //     cout << "Case #" << i + 1 << ": ";

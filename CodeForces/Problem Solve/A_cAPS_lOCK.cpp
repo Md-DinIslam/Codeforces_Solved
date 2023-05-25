@@ -81,12 +81,23 @@ const ll mod = 1e9 + 7;
 
 void solve()
 {
-    int v[4];
-    for (int i = 0; i < 4; ++i) {
-        cin >> v[i];
+    string s;
+    cin >> s;
+    bool ok = 0;
+    for (int i = 1; i < s.size(); ++i) {
+        if (islower(s[i])) ok = 1;
     }
-    sort(v, v + 4);
-    cout << v[3] - v[0] << " " << v[3] - v[1] << " " << v[3] - v[2] << '\n';
+    if (!ok) {
+        for (int i = 0; i < s.size(); ++i) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            }
+            else s[i] = tolower(s[i]);
+        }
+        cout << s;
+    }
+    else cout << s;
+
 }
 // Main
 int main()

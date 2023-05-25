@@ -78,15 +78,21 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 const lld PI = 3.141592653589793238;
 const ll INF = 1e18 + 9;
 const ll mod = 1e9 + 7;
-
+bool vowel(char &x) {
+    return (x == 'a' || x == 'e' || x == 'o' || x == 'i' || x == 'u' || x == 'y');
+}
 void solve()
 {
-    int v[4];
-    for (int i = 0; i < 4; ++i) {
-        cin >> v[i];
+    string s, ans;
+    cin >> s;
+    for (auto &x : s) {
+        x = tolower(x);
+        if (!(vowel(x))) {
+            ans.push_back('.');
+            ans.push_back(x);
+        }
     }
-    sort(v, v + 4);
-    cout << v[3] - v[0] << " " << v[3] - v[1] << " " << v[3] - v[2] << '\n';
+    cout << ans;
 }
 // Main
 int main()
