@@ -82,17 +82,23 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 const lld PI = 3.141592653589793238;
 const ll INF = 1e18 + 9;
 const ll mod = 1e9 + 7;
-
+const int mxN = 1e9 + 10;
 void solve()
 {
-    int n, k, ans = 0;
-    cin >> n >> k;
-    int v[n];
-    for (auto &x : v) cin >> x;
-    for (int i = 0; i < n; ++i)
-        if (v[i] >= v[k - 1] && v[i] > 0)
-            ans++;
-    cout << ans;
+    string s;
+    cin >> s;
+    int cnt[26] = {};
+    for (auto &x : s) {
+        cnt[x - 'a']++;
+    }
+    for (int i = 25; i >= 0; --i) {
+        if (cnt[i] > 0) {
+            for (int j = 0; j < cnt[i]; ++j) {
+                cout << (char) (i + 'a');
+            }
+            break;
+        }
+    }
 }
 // Main
 int main()

@@ -85,14 +85,17 @@ const ll mod = 1e9 + 7;
 
 void solve()
 {
-    int n, k, ans = 0;
-    cin >> n >> k;
-    int v[n];
-    for (auto &x : v) cin >> x;
-    for (int i = 0; i < n; ++i)
-        if (v[i] >= v[k - 1] && v[i] > 0)
-            ans++;
-    cout << ans;
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    iota(v.begin(), v.end(), 1);
+    if (n & 1) cout << -1;
+    else {
+        for(int i = 0;i < n; i += 2){
+            swap(v[i], v[i+1]);
+            cout << v[i] << " "<< v[i+1]<< " ";
+        }
+    }
 }
 // Main
 int main()

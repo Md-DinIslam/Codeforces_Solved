@@ -82,17 +82,30 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 const lld PI = 3.141592653589793238;
 const ll INF = 1e18 + 9;
 const ll mod = 1e9 + 7;
-
+const int mxN = 105;
 void solve()
 {
-    int n, k, ans = 0;
-    cin >> n >> k;
-    int v[n];
-    for (auto &x : v) cin >> x;
-    for (int i = 0; i < n; ++i)
-        if (v[i] >= v[k - 1] && v[i] > 0)
-            ans++;
-    cout << ans;
+    int n;
+    cin >> n;
+    int v[n][n];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j)
+            cin >> v[i][j];
+    }
+    ll sum = 0;
+    int i = 0, j = 0;
+    while (i < n && j < n)
+        sum += v[i][j], v[i][j] = 0, ++i, ++j;
+    i = 0, j = n - 1;
+    while (i < n && j >= 0)
+        sum += v[i][j], v[i][j] = 0, ++i, --j;
+    i = n / 2, j = 0;
+    while (j < n)
+        sum += v[i][j], v[i][j] = 0, ++j;
+    i = 0, j = n / 2;
+    while (i < n)
+        sum += v[i][j], v[i][j] = 0, ++i;
+    cout << sum;
 }
 // Main
 int main()

@@ -85,14 +85,13 @@ const ll mod = 1e9 + 7;
 
 void solve()
 {
-    int n, k, ans = 0;
-    cin >> n >> k;
-    int v[n];
-    for (auto &x : v) cin >> x;
-    for (int i = 0; i < n; ++i)
-        if (v[i] >= v[k - 1] && v[i] > 0)
-            ans++;
-    cout << ans;
+    set<int> st;
+    for (int i = 0; i < 4; ++i) {
+        int x;
+        cin >> x;
+        st.insert(x);
+    }
+    cout << (4 - st.size());
 }
 // Main
 int main()
