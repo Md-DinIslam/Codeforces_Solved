@@ -3,19 +3,28 @@
 */
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
+#define ll long long
 #define ff first
 #define ss second
 void solve() {
-    ll f;
-    cin >> f;
-    if (f & 1) cout << (f - 1) / 2 - f;
-    else cout << (f / 2);
-    // ll n = f / 2;
-    // ll evSum = (n * (n + 1));
-    // if (f & 1) n++;
-    // ll odSum = (n * n);
-    // cout << evSum - odSum;
+    int n;
+    cin >> n;
+    int v[n];
+    for (int i = 0; i < n; ++i) cin >> v[i];
+    sort(v, v + n);
+    if (v[0] != 1) cout << "NO\n";
+    else {
+        ll sum = 0, ok = 0;
+        for (int i = 1; i < n; ++i) {
+            sum += v[i - 1];
+            if (v[i] > sum) {
+                ok = 1;
+                break;
+            }
+        }
+        if (ok) cout << "NO\n";
+        else cout << "YES\n";
+    }
 }
 int main()
 {
@@ -27,7 +36,7 @@ int main()
     freopen("Error.txt", "w", stderr);
 #endif
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while (t--) solve();
     // fl(i, t) { //Kickstart
     //     cout << "Case #" << i + 1 << ": "; solve();

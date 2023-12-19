@@ -3,19 +3,22 @@
 */
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
+#define ll long long
 #define ff first
 #define ss second
 void solve() {
-    ll f;
-    cin >> f;
-    if (f & 1) cout << (f - 1) / 2 - f;
-    else cout << (f / 2);
-    // ll n = f / 2;
-    // ll evSum = (n * (n + 1));
-    // if (f & 1) n++;
-    // ll odSum = (n * n);
-    // cout << evSum - odSum;
+    string tp, s;
+    cin >> tp >> s;
+    string pre = "qwertyuiopasdfghjkl;zxcvbnm,./", ans = "";
+    for (int i = 0; i < s.size(); ++i) {
+        for (int j = 0; j < pre.size(); ++j) {
+            if (s[i] == pre[j]) {
+                if (tp == "R") ans += pre[j - 1];
+                else ans += pre[j + 1];
+            }
+        }
+    }
+    cout << ans << '\n';
 }
 int main()
 {

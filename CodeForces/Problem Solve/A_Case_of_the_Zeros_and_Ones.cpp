@@ -7,15 +7,15 @@ using ll = long long;
 #define ff first
 #define ss second
 void solve() {
-    ll f;
-    cin >> f;
-    if (f & 1) cout << (f - 1) / 2 - f;
-    else cout << (f / 2);
-    // ll n = f / 2;
-    // ll evSum = (n * (n + 1));
-    // if (f & 1) n++;
-    // ll odSum = (n * n);
-    // cout << evSum - odSum;
+    int n;
+    cin >> n;
+    int c0 = 0, c1 = 0;
+    for (int i = 0; i < n; ++i) {
+        char x; cin >> x;
+        if (x == '1') ++c1;
+        else ++c0;
+    }
+    cout << (n - 2 * (min(c0, c1)));
 }
 int main()
 {

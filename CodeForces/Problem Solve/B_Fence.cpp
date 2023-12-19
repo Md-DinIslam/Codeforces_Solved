@@ -4,18 +4,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define ff first
-#define ss second
+const int mxN = 1.5e5 + 10;
+int presum[mxN];
 void solve() {
-    ll f;
-    cin >> f;
-    if (f & 1) cout << (f - 1) / 2 - f;
-    else cout << (f / 2);
-    // ll n = f / 2;
-    // ll evSum = (n * (n + 1));
-    // if (f & 1) n++;
-    // ll odSum = (n * n);
-    // cout << evSum - odSum;
+    int n, k;
+    cin >> n >> k;
+    int v[n];
+    for (int i = 1; i <= n; ++i) {
+        cin >> v[i];
+        presum[i] = v[i] + presum[i - 1];
+    }
+    int sum = presum[k], ans;
+    for (int i = 1; i + k - 1 <= n; ++i) {
+        int temp = presum[i + k - 1] - presum[i - 1];
+        if (temp <= sum) {
+            ans = i;
+            sum = temp;
+        }
+    }
+    cout << ans;
 }
 int main()
 {

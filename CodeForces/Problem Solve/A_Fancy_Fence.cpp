@@ -4,18 +4,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define ff first
-#define ss second
+const int mxN = 1.5e5 + 10;
+int presum[mxN];
 void solve() {
-    ll f;
-    cin >> f;
-    if (f & 1) cout << (f - 1) / 2 - f;
-    else cout << (f / 2);
-    // ll n = f / 2;
-    // ll evSum = (n * (n + 1));
-    // if (f & 1) n++;
-    // ll odSum = (n * n);
-    // cout << evSum - odSum;
+    int n;
+    cin >> n;
+    cout << (360 % (180 - n) == 0 ? "YES\n" : "NO\n");
+    // int ans = 180 - n;
+    // ans = 360 % ans;
+    // if(ans) cout << "NO\n";
+    // else cout << "YES\n";
 }
 int main()
 {
@@ -27,7 +25,7 @@ int main()
     freopen("Error.txt", "w", stderr);
 #endif
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while (t--) solve();
     // fl(i, t) { //Kickstart
     //     cout << "Case #" << i + 1 << ": "; solve();
